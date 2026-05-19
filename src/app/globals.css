@@ -1,2 +1,47 @@
 @import "tailwindcss";
 @import "@heroui/styles"; 
+
+
+/* DocAppoint - CSS Variable Theme Definitions */
+
+:root {
+  /* Clinical Precision & Care (Light Mode) */
+  --primaryColor: #0466c8;
+  --on-primary: #ffffff;
+  --primary-container: #d6e3ff;
+  --on-primary-container: #001b3e;
+  
+  --secondary: #565e71;
+  --on-secondary: #ffffff;
+  --secondary-container: #dae2f9;
+  --on-secondary-container: #131c2c;
+  
+  --surface: #f9f9ff;
+  --on-surface: #191c20;
+  --surface-variant: #e0e2ec;
+  --on-surface-variant: #44474e;
+  
+  --outline: #74777f;
+  --outline-variant: #c4c6d0;
+  
+  --success: #2e7d32;
+  --error: #ba1a1a;
+}
+
+/* Obsidian Precision (Dark Mode)
+.dark-theme {
+  --primary: #0466c8;
+  --on-primary: #ffffff;
+  --primary-container: #004494;
+  --on-primary-container: #d6e3ff;
+  
+  --surface: #0c141a;
+  --on-surface: #e2e2e6;
+  --surface-bright: #323a41;
+  --surface-container-low: #151c22;
+  --surface-container-highest: #2a3137;
+  
+  --on-surface-variant: #c4c6d0;
+  --outline: #8e9099;
+  --outline-variant: #44474e;
+} */
