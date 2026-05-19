@@ -1,5 +1,6 @@
 import Banner from "@/components/Banner";
 import HowWorks from "@/components/HowWorks";
+import WhyTrustUs from "@/components/WhyTrustUs";
 
 
 const HomePage = () => {
@@ -8,6 +9,7 @@ const HomePage = () => {
 
 <Banner/> 
 <HowWorks/>
+<WhyTrustUs/>
     </section>
   );
 };

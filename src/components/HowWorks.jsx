@@ -29,11 +29,13 @@ const HowWorks = () => {
   ];
 
   return (
-    <section className="bg-[#f8faff] py-15  px-4 sm:px-6 lg:px-8">
+    <section className="bg-[#f8faff] py-20  ">
       <div className="max-w-6xl mx-auto text-center">
-        <h2 className="text-2xl sm:text-3xl md:text-[32px] font-bold text-(--titleColor) mb-12 sm:mb-16">
+       <div className="text-center">
+          <h2 className="text-2xl px-6 sm:text-3xl md:text-[32px] font-bold text-(--titleColor) mb-12 sm:mb-16">
           3 Simple Steps to Meet Your Doctor
-        </h2>
+          </h2>
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-6 lg:gap-12">
           {steps.map((step) => (

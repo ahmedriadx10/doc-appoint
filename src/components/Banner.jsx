@@ -50,7 +50,7 @@ const Banner = () => {
   ];
 
   return (
-    <section className="py-15 max-w-7xl mx-auto w-[90%]">
+    <section className="py-20  max-w-7xl mx-auto w-[90%]">
       {/* <BannerSliderPiece /> */}
 
 
