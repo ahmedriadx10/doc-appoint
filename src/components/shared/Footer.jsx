@@ -1,8 +1,8 @@
 import React from 'react';
-// react-icons থেকে প্রয়োজনীয় সব আইকন ইম্পোর্ট করা হয়েছে
+
 import { FiGlobe, FiMail } from 'react-icons/fi';
 import { RiTwitterXFill } from 'react-icons/ri';
-import { FaBriefcaseMedical, FaFacebookF, FaInstagram } from 'react-icons/fa'; // নতুন আইকনসমূহ
+import { FaBriefcaseMedical, FaFacebookF, FaInstagram } from 'react-icons/fa'; 
 
 const Footer = () => {
   return (

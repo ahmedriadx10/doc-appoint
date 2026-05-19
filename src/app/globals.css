@@ -45,3 +45,20 @@
   --outline: #8e9099;
   --outline-variant: #44474e;
 } */
+
+
+.custom-bounce{
+  animation:myBounce 2s ease-in-out infinite
+}
+
+
+@keyframes myBounce{
+0%{
+  transform:translate(0)
+}50%{
+  transform:translateY(-2px)
+}
+}
+
+
+
