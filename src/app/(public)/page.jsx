@@ -1,4 +1,5 @@
 import Banner from "@/components/Banner";
+import HowWorks from "@/components/HowWorks";
 
 
 const HomePage = () => {
@@ -6,6 +7,7 @@ const HomePage = () => {
     <section>
 
 <Banner/> 
+<HowWorks/>
     </section>
   );
 };

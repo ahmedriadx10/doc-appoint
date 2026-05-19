@@ -14,7 +14,8 @@
   --secondary: #565e71;
   --on-secondary: #ffffff;
   --secondary-container: #dae2f9;
-  --on-secondary-container: #131c2c;
+  --titleColor: #131c2c;
+  --textColor:#4b5563;
   
   --surface: #f9f9ff;
   --on-surface: #191c20;
@@ -48,7 +49,7 @@
 
 
 .custom-bounce{
-  animation:myBounce 2s ease-in-out infinite
+  animation:myBounce 1.5s ease-in-out infinite
 }
 
 
