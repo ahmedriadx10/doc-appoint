@@ -1,5 +1,6 @@
 "use client";
 
+import { authClient } from "@/lib/auth-client";
 import {
   Button,
   Description,
@@ -24,7 +25,7 @@ const LoginForm = () => {
     setEye(!eye);
   };
 
-const handleLogin=(e)=>{
+const handleLogin=async(e)=>{
 
 e.preventDefault()
 
@@ -33,6 +34,18 @@ const exactFormData=Object.fromEntries(formData.entries())
 
 console.log(exactFormData)
 
+
+const result=await authClient.signIn.email({
+  ...exactFormData,
+  callbackURL:'/'
+})
+
+
+if(result?.error){
+
+  alert(result?.error?.message)
+return
+}
 
 
 }

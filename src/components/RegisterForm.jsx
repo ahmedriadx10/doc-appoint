@@ -18,45 +18,34 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 
 const RegisterForm = () => {
-
-
-    const [eye, setEye] = useState(false);
- const router=useRouter()
+  const [eye, setEye] = useState(false);
+  const router = useRouter();
   const eyeClick = () => {
     setEye(!eye);
   };
 
-const handleRegister=async(e)=>{
+  const handleRegister = async (e) => {
+    e.preventDefault();
 
-e.preventDefault()
+    const formData = new FormData(e.currentTarget);
+    const exactFormData = Object.fromEntries(formData.entries());
 
-const formData=new FormData (e.currentTarget)
-const exactFormData=Object.fromEntries(formData.entries())
+    console.log(exactFormData);
 
-console.log(exactFormData)
+    const result = await authClient.signUp.email(
+      { ...exactFormData },
+      {
+        onSuccess: () => {
+          router.push("/login");
+        },
+      },
+    );
 
-
-const {data,error}=await authClient.signUp.email(
-  
-  {...exactFormData},{
-onSuccess:()=>{
-router.push('/')
-}
-
-
-  })
-
-
-  if(error){
-
-    alert(error.message)
-
-  }
-
-}
-
-
-
+    if (result?.error) {
+      alert(result?.error.message);
+      return;
+    }
+  };
 
   return (
     <section className="max-w-lg border mx-auto p-5 md:p-10 rounded-2xl mt-10">
@@ -98,11 +87,11 @@ router.push('/')
         </TextField>
 
         <TextField
-        className={'relative'}
+          className={"relative"}
           isRequired
           minLength={8}
           name="password"
-      type={`${eye ? "text" : "password"}`}
+          type={`${eye ? "text" : "password"}`}
           validate={(value) => {
             if (value.length < 8) {
               return "Password must be at least 8 characters";
@@ -122,21 +111,19 @@ router.push('/')
             placeholder="Enter your password"
             className="rounded-lg py-3 shadow-none bg-[#94A3B810]"
           />
-              <div className="absolute top-9 right-3 text-lg" onClick={eyeClick}>
-              {eye ? <FaEye /> : <FaEyeSlash />}
-            </div>
+          <div className="absolute top-9 right-3 text-lg" onClick={eyeClick}>
+            {eye ? <FaEye /> : <FaEyeSlash />}
+          </div>
           <FieldError />
         </TextField>
 
         <div className="">
-             <Button
-       type="submit"
-          
-          className="mt-5 w-full bg-[#0052A3] text-white font-semibold text-sm h-10 rounded-xl flex items-center justify-center gap-2 hover:bg-[#004182] transition-colors shadow-md"
-       
-        >
-    Sign up
-        </Button>
+          <Button
+            type="submit"
+            className="mt-5 w-full bg-[#0052A3] text-white font-semibold text-sm h-10 rounded-xl flex items-center justify-center gap-2 hover:bg-[#004182] transition-colors shadow-md"
+          >
+            Sign up
+          </Button>
         </div>
       </Form>
 
@@ -144,14 +131,17 @@ router.push('/')
         <div className="flex justify-between text-xs items-center gap-2 text-[#94A3B8] ">
           <p className="border  w-[55%] md:w-full   "></p>
 
-          <p className="w-full  text-center tracking-widest text-nowrap">OR REGISTER WITH</p>
+          <p className="w-full  text-center tracking-widest text-nowrap">
+            OR REGISTER WITH
+          </p>
           <p className=" border w-[55%] md:w-full "></p>
- 
         </div>
 
         <Button className="w-full h-10 rounded-xl border border-(--outline) bg-white">
           <FcGoogle />
-          <span className="text-(--on-surface) font-semibold">Sign up with Google</span>
+          <span className="text-(--on-surface) font-semibold">
+            Sign up with Google
+          </span>
         </Button>
 
         <div className="flex gap-1 justify-center">
