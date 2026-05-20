@@ -8,10 +8,10 @@ const AppointmentDoctorCard = ({doctor}) => {
   const {_id,name,specialty,experience,image,rating,fee,education}=doctor
 
   return (
-    // মেইন কন্টেইনারের উইডথ এখন রেসপনসিভ গ্রিডের সাথে খাপ খাইয়ে নেওয়ার জন্য w-full দেওয়া হয়েছে
+
     <div className="w-full  h-120 rounded-2xl relative overflow-hidden shadow-md group mx-auto">
       
-      {/* ব্যাকগ্রাউন্ড ইমেজ (রেসপনসিভ sizes প্রোপার্টিসহ) */}
+
       <Image 
         src= {image}
         alt={name} 
@@ -21,10 +21,9 @@ const AppointmentDoctorCard = ({doctor}) => {
         className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
       />
 
-      {/* নিচের ইনফরমেশন পার্ট */}
+
       <div className="absolute bottom-3 left-3 right-3 bg-white/70 backdrop-blur-md rounded-2xl p-5 flex flex-col gap-3.5 border border-white/30 shadow-sm z-10">
-        
-        {/* ক্যাটাগরি এবং রেটিং */}
+
         <div className="flex justify-between items-center ">
           <span className="bg-(--primaryColor) text-white text-[10px] font-bold px-3 py-1 rounded-full tracking-wider uppercase">
       {specialty}
@@ -35,7 +34,7 @@ const AppointmentDoctorCard = ({doctor}) => {
           </div>
         </div>
 
-        {/* নাম এবং ডিগ্রি */}
+
         <div className="flex flex-col gap-0.5">
           <h3 className="text-[#1E293B] font-bold text-lg leading-tight">
        {name}
@@ -45,9 +44,9 @@ const AppointmentDoctorCard = ({doctor}) => {
           </p>
         </div>
 
-        {/* এক্সপেরিয়েন্স এবং ফি */}
+
         <div className="grid grid-cols-2 gap-2 my-0.5">
-          {/* এক্সপেরিয়েন্স */}
+
           <div className="flex items-center gap-2">
             <div className="w-8 h-8 rounded-full bg-[#0052A3]/10 flex items-center justify-center text-(--primaryColor)">
               <FaBriefcase className="text-xs" />
@@ -62,7 +61,7 @@ const AppointmentDoctorCard = ({doctor}) => {
             </div>
           </div>
 
-          {/* ফি */}
+
           <div className="flex items-center gap-2">
             <div className="w-8 h-8 rounded-full bg-[#0052A3]/10 flex items-center justify-center text-(--primaryColor)">
               <FaMoneyBillWave className="text-xs" />
@@ -78,7 +77,7 @@ const AppointmentDoctorCard = ({doctor}) => {
           </div>
         </div>
 
-        {/* বুক অ্যাপয়েন্টমেন্ট বাটন */}
+
 <Link href={`doctor-details/${_id}`}>
 
         <Button

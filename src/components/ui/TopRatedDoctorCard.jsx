@@ -13,7 +13,7 @@ const TopRatedDoctorCard = ({doctor}) => {
 
   return (
     <div className="hover:-translate-y-1 transition-transform bg-white rounded-2xl border border-gray-100 shadow  overflow-hidden ">
-      {/* Image Section */}
+  
       <div className="relative w-full h-70  overflow-hidden">
         <Image
           src={doctor?.image}
@@ -24,7 +24,7 @@ const TopRatedDoctorCard = ({doctor}) => {
           priority
         />
         
-        {/* Rating Chip (এখন ছবির ওপরে ভাসমান) */}
+  
         <div className="absolute top-3 left-3">
 
             <Chip>
@@ -36,7 +36,7 @@ const TopRatedDoctorCard = ({doctor}) => {
         </div>
       </div>
 
-      {/* Info Section */}
+
       <div className="p-4">
         {/* Name and Verification */}
         <div className="flex items-center gap-1.5">
@@ -44,7 +44,6 @@ const TopRatedDoctorCard = ({doctor}) => {
           <MdVerified className="text-blue-600 text-lg" />
         </div>
 
-        {/* Speciality & Degrees */}
         <p className="text-sm text-(--textColor) mt-0.5">
           {doctor?.specialty} <span className=" mx-1">•</span> {doctor?.education}
         </p>
@@ -52,22 +51,22 @@ const TopRatedDoctorCard = ({doctor}) => {
         {/* Divider */}
         <hr className="border-gray-100 my-4" />
 
-        {/* Card Body: Experience & Location */}
+
         <div className="space-y-2.5 mb-5">
-          {/* Experience */}
+        
           <div className="flex items-center gap-2 text-gray-600">
             <FiBriefcase className="text-blue-500 text-base" />
             <span className="text-sm font-medium">Over {doctor?.experience} of Experience</span>
           </div>
 
-          {/* Location */}
+
           <div className="flex items-center gap-2 text-gray-600">
             <HiLocationMarker className="text-blue-500 text-base" />
             <span className="text-sm font-medium">{doctor?.location}</span>
           </div>
         </div>
 
-        {/* Action Button */}
+
         <Link href={`doctor-details/${doctor?._id}`}>
         <Button
        
