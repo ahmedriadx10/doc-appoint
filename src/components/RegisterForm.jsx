@@ -14,6 +14,7 @@ import {
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import toast from "react-hot-toast";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 
@@ -36,24 +37,23 @@ const RegisterForm = () => {
       { ...exactFormData },
       {
         onSuccess: () => {
+          toast.success(`Registration successfull`);
           router.push("/login");
         },
       },
     );
 
     if (result?.error) {
-      alert(result?.error.message);
+      toast.error(result?.error.message);
       return;
     }
   };
 
-
-const handleSocialSignIn= async()=>{
-  const data = await authClient.signIn.social({
-    provider: "google",
-  });
-
-}
+  const handleSocialSignIn = async () => {
+    const data = await authClient.signIn.social({
+      provider: "google",
+    });
+  };
 
   return (
     <section className="max-w-lg border mx-auto p-5 md:p-10 rounded-2xl mt-10">
@@ -145,7 +145,10 @@ const handleSocialSignIn= async()=>{
           <p className=" border w-[55%] md:w-full "></p>
         </div>
 
-        <Button className="w-full h-10 rounded-xl border border-(--outline) bg-white" onPress={handleSocialSignIn}>
+        <Button
+          className="w-full h-10 rounded-xl border border-(--outline) bg-white"
+          onPress={handleSocialSignIn}
+        >
           <FcGoogle />
           <span className="text-(--on-surface) font-semibold">
             Sign up with Google
