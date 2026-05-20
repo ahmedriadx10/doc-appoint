@@ -55,7 +55,7 @@ const WhyTrustUs = () => {
         </div>
 
         {/* Responsive Grid */}
-        <div className="mt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6">
+        <div className="mt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6 lg:grid-rows-[270px_270px] xl:grid-rows-[220px_220px] ">
           {/* Card 1: Verified Doctors - lg:8col, md:full, sm:full */}
           <div className="col-span-full md:col-span-full lg:col-span-8">
             <div
