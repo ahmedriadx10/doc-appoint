@@ -16,7 +16,7 @@ const {_id,name,specialty,image,experience,availability,description,hospital,loc
 
 
   return (
-    <div className="min-h-screen  py-10 px-4 md:px-10 lg:px-20 font-sans">
+    <div className="min-h-screen  py-20 px-4 md:px-10 lg:px-20 ">
       <div className="max-w-6xl mx-auto">
         
         {/* Top Section: Profile Header */}
@@ -27,8 +27,8 @@ const {_id,name,specialty,image,experience,availability,description,hospital,loc
             <Image 
               src={image} 
               alt={name} 
-              fill // প্যারেন্ট ডিভের সাইজ অনুযায়ী ইমেজ ফিট করার জন্য
-              priority // পেজের একদম শুরুতে থাকায় ইমেজটি যেন দ্রুত লোড হয়
+              fill 
+              priority 
               sizes="(max-width: 768px) 176px, 176px"
               className="object-cover"
             />
@@ -45,10 +45,7 @@ const {_id,name,specialty,image,experience,availability,description,hospital,loc
               {education}
             </p>
             
-            <div className="flex flex-wrap justify-center md:justify-start gap-2 mb-6">
-              <span className="text-xs bg-slate-100 text-slate-600 px-3 py-1 rounded-full font-medium">Brain Specialist</span>
-              <span className="text-xs bg-slate-100 text-slate-600 px-3 py-1 rounded-full font-medium">Nerve Management</span>
-            </div>
+    
             
             <button className="inline-flex items-center gap-2 bg-[#0252A3] hover:bg-[#014182] text-white font-semibold px-6 py-3 rounded-xl transition shadow-md shadow-blue-100">
               <FaRegCalendarAlt className="w-4 h-4" />
