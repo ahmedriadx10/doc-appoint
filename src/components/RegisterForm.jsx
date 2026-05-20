@@ -1,5 +1,6 @@
 "use client";
 
+import { authClient } from "@/lib/auth-client";
 import {
   Button,
   Description,
@@ -11,6 +12,7 @@ import {
   TextField,
 } from "@heroui/react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
@@ -19,12 +21,12 @@ const RegisterForm = () => {
 
 
     const [eye, setEye] = useState(false);
- 
+ const router=useRouter()
   const eyeClick = () => {
     setEye(!eye);
   };
 
-const handleRegister=(e)=>{
+const handleRegister=async(e)=>{
 
 e.preventDefault()
 
@@ -34,8 +36,25 @@ const exactFormData=Object.fromEntries(formData.entries())
 console.log(exactFormData)
 
 
+const {data,error}=await authClient.signUp.email(
+  
+  {...exactFormData},{
+onSuccess:()=>{
+router.push('/')
+}
+
+
+  })
+
+
+  if(error){
+
+    alert(error.message)
+
+  }
 
 }
+
 
 
 
@@ -116,7 +135,7 @@ console.log(exactFormData)
           className="mt-5 w-full bg-[#0052A3] text-white font-semibold text-sm h-10 rounded-xl flex items-center justify-center gap-2 hover:bg-[#004182] transition-colors shadow-md"
        
         >
-     View Details
+    Sign up
         </Button>
         </div>
       </Form>
