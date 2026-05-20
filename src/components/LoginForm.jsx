@@ -51,6 +51,12 @@ return
 }
 
 
+const handleSocialSignIn= async()=>{
+  const data = await authClient.signIn.social({
+    provider: "google",
+  });
+
+}
 
   return (
     <section className="max-w-lg border mx-auto p-5 md:p-10 rounded-2xl mt-10">
@@ -144,7 +150,7 @@ journey.</p>
  
         </div>
 
-        <Button className="w-full h-10 rounded-xl border border-(--outline) bg-white">
+        <Button className="w-full h-10 rounded-xl border border-(--outline) bg-white" onPress={handleSocialSignIn}>
           <FcGoogle />
           <span className="text-(--on-surface) font-semibold">Login with Google</span>
         </Button>

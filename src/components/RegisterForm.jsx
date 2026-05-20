@@ -47,6 +47,14 @@ const RegisterForm = () => {
     }
   };
 
+
+const handleSocialSignIn= async()=>{
+  const data = await authClient.signIn.social({
+    provider: "google",
+  });
+
+}
+
   return (
     <section className="max-w-lg border mx-auto p-5 md:p-10 rounded-2xl mt-10">
       <Form className="flex  flex-col gap-4" onSubmit={handleRegister}>
@@ -137,7 +145,7 @@ const RegisterForm = () => {
           <p className=" border w-[55%] md:w-full "></p>
         </div>
 
-        <Button className="w-full h-10 rounded-xl border border-(--outline) bg-white">
+        <Button className="w-full h-10 rounded-xl border border-(--outline) bg-white" onPress={handleSocialSignIn}>
           <FcGoogle />
           <span className="text-(--on-surface) font-semibold">
             Sign up with Google
