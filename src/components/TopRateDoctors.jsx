@@ -1,6 +1,7 @@
 import { topRatedDoctorsGet } from "@/lib/data";
 import TopRatedDoctorCard from "./ui/TopRatedDoctorCard";
 import Link from "next/link";
+import {  FaArrowRight } from "react-icons/fa";
 
 const TopRateDoctors = async() => {
  
@@ -14,22 +15,25 @@ const TopRateDoctors = async() => {
 {/* top rated doctors section introduce */}
 
 
-<div >
+<div className="" >
 
- <h2 className="text-2xl px-6 sm:text-3xl md:text-[32px] font-bold text-(--titleColor)">
+ <h2 className="text-center lg:text-left text-2xl px-6 sm:text-3xl md:text-[32px] font-bold text-(--titleColor)">
           Out Top Rated Doctors
           </h2>
 
-<p className="text-right text-(--primaryColor) font-medium text-sm"><Link href={'/all-appointments'}>View All Specialists</Link></p>
+
 </div>
 
 
-<div className="mt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 ">
+<div className="mt-15 lg:mt-20">
+  <p className=" text-(--primaryColor) font-medium text-sm flex justify-end items-center gap-1.5"><Link href={'/all-appointments'}>View All Specialists</Link><FaArrowRight/></p>
+  <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
 
 
   {topRatedDoctors?.map((doctor)=><TopRatedDoctorCard key={doctor._id} doctor={doctor}/>)}
 
 
+</div>
 </div>
 
    

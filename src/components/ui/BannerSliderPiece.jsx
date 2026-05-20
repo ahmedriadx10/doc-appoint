@@ -41,8 +41,9 @@ const {tooltip, heading, subHeading, description, btnOne, btnOneIcon, btnTwo, bt
             </button>
 
             <button className="flex items-center gap-2 bg-[#EBF3FC] hover:bg-[#D9E9FA] text-(--primaryColor) border border-[#A3C7F7] font-medium px-6 py-3.5 rounded-lg transition-all active:scale-95">
-              {btnTwoIcon}
+          
               <span>{btnTwo}</span>
+                  {btnTwoIcon}
             </button>
           </div>
         </div>

@@ -46,7 +46,7 @@ const WhyTrustUs = () => {
   ];
 
   return (
-    <section className="py-20 ">
+    <section className="py-20 bg-(--primary-container)">
       <div className="max-w-7xl mx-auto w-[90%]">
         <div className="text-center">
           <h2 className="text-2xl px-6 sm:text-3xl md:text-[32px] font-bold text-(--titleColor)">
@@ -55,11 +55,11 @@ const WhyTrustUs = () => {
         </div>
 
         {/* Responsive Grid */}
-        <div className="mt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6 lg:grid-rows-[270px_270px] xl:grid-rows-[220px_220px] ">
+        <div className="my-15  grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6 lg:grid-rows-[270px_270px] xl:grid-rows-[220px_220px] ">
           {/* Card 1: Verified Doctors - lg:8col, md:full, sm:full */}
           <div className="col-span-full md:col-span-full lg:col-span-8">
             <div
-              className={`h-full border border-[#e2e8f0] border-l-4 border-l-(--primaryColor)  rounded-lg p-8 md:p-12 `}
+              className={`h-full border border-[#e2e8f0] bg-white border-l-4 border-l-(--primaryColor)  rounded-lg p-8 md:p-12 `}
             >
               <div className="flex flex-col md:flex-row md:items-center gap-6">
                 <div className="shrink-0 bg-blue-50 p-3 rounded-full max-w-max">
@@ -80,7 +80,7 @@ const WhyTrustUs = () => {
           </div>
 
           {/* Card 2: 24/7 Support - lg:4col, md:1col, sm:full */}
-          <div className="col-span-full md:col-span-1 lg:col-span-4">
+          <div className="col-span-full md:col-span-1 lg:col-span-4 ">
             <div
               className={`bg-(--primaryColor) h-full rounded-lg p-6 `}
             >
@@ -109,7 +109,7 @@ const WhyTrustUs = () => {
           {/* Card 3: Instant Confirmation - lg:4col, md:1col, sm:full */}
           <div className="col-span-full  md:col-span-1 lg:col-span-4">
             <div
-              className={` rounded-lg p-6 gap-6 flex flex-col justify-center border border-[#e2e8f0] h-full  `}
+              className={` rounded-lg p-6 gap-6 flex flex-col justify-center border bg-white border-[#e2e8f0] h-full  `}
             >
    <div className="shrink-0  bg-blue-50 p-3 rounded-full max-w-max ">
               
@@ -135,7 +135,7 @@ const WhyTrustUs = () => {
           {/* Card 4: Flexible Scheduling - lg:8col, md:full, sm:full */}
           <div className="col-span-full md:col-span-full lg:col-span-8">
             <div
-              className={`h-full flex flex-col justify-center border-r-4 border-r-(--primaryColor) rounded-lg p-8 md:p-12 border border-[#e2e8f0] `}
+              className={`h-full flex flex-col justify-center border-r-4 border-r-(--primaryColor) rounded-lg p-8 md:p-12 border border-[#e2e8f0] bg-white`}
             >
               <div className="flex flex-col md:flex-row md:items-center gap-6">
                 <div className="shrink-0  bg-blue-50 p-3 rounded-full max-w-max">

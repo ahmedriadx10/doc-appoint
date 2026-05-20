@@ -12,7 +12,7 @@ const TopRatedDoctorCard = ({doctor}) => {
   // const { _id, name, image, speciality, education, experience, location,rating } = doctor
 
   return (
-    <div className=" bg-white rounded-2xl border border-gray-100 shadow  overflow-hidden ">
+    <div className="hover:-translate-y-1 transition-transform bg-white rounded-2xl border border-gray-100 shadow  overflow-hidden ">
       {/* Image Section */}
       <div className="relative w-full h-70  overflow-hidden">
         <Image
@@ -20,7 +20,7 @@ const TopRatedDoctorCard = ({doctor}) => {
           alt={doctor?.name}
           fill
           className="object-cover object-top"
-   sizes="(max-width: 768px) 100vw, 33vw"
+   sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
           priority
         />
         
@@ -69,14 +69,14 @@ const TopRatedDoctorCard = ({doctor}) => {
 
         {/* Action Button */}
         <Link href={`doctor-details/${doctor?._id}`}>
-          <Button
-            
-    variant='outline'
-            fullWidth
-            className="text-white bg-(--primaryColor) font-semibold"
-          >
-            View Details
-          </Button>
+        <Button
+       
+          
+          className="w-full bg-[#0052A3] text-white font-semibold text-sm h-10 rounded-xl flex items-center justify-center gap-2 hover:bg-[#004182] transition-colors shadow-md"
+       
+        >
+     View Details
+        </Button>
         </Link>
       </div>
     </div>
