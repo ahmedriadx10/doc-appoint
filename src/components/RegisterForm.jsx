@@ -85,7 +85,7 @@ const RegisterForm = () => {
           />
           <FieldError />
         </TextField>
-        <TextField name="imageURL" type="url">
+        <TextField name="image" type="url">
           <Label className="font-semibold">Photo URL</Label>
           <Input
             placeholder="https://example.com/avatar.jpg"

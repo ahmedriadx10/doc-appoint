@@ -1,9 +1,15 @@
+"use client";
+import DashBoardControl from "@/components/DashBoardControl";
+
 
 const DashBoard = () => {
+ 
+
   return (
-    <div>
-      Dashboard page
-    </div>
+<>
+<DashBoardControl/>
+
+</>
   );
 };
 
