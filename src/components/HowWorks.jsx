@@ -31,14 +31,14 @@ const HowWorks = () => {
   return (
     <section className="bg-[#f8faff] py-20  ">
       <div className="max-w-6xl mx-auto text-center">
-       <div className="text-center space-y-5 px-6">
-          <h2 className="text-2xl  sm:text-3xl md:text-[32px] font-bold text-(--titleColor) mb-12 sm:mb-16">
+       <div className="text-center space-y-3 px-3">
+          <h2 className="text-2xl  sm:text-3xl md:text-[32px] font-bold text-(--titleColor) ">
           3 Simple Steps to Meet Your Doctor
           </h2>
           <p className="text-(--textColor)">Experience the seamless flow of modern healthcare scheduling.</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-6 lg:gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-6 mt-12 sm:mt-16 lg:gap-12">
           {steps.map((step) => (
             <div
               key={step.id}

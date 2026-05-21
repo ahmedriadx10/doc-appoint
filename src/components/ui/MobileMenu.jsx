@@ -28,7 +28,7 @@ export const MobileMenu = () => {
       fetchOptions: {
         onSuccess: () => {
           route.refresh("/");
-          // toast.success('Sign out successfull')
+          toast.success('Sign out successfull')
         },
       },
     });

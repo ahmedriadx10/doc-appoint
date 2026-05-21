@@ -15,9 +15,9 @@ const TopRateDoctors = async() => {
 {/* top rated doctors section introduce */}
 
 
-<div className=" space-y-5 px-6" >
+<div className=" space-y-3 px-3" >
 
- <h2 className="text-center lg:text-left text-2xl  sm:text-3xl md:text-[32px] font-bold text-(--titleColor)">
+ <h2 className="text-center  text-2xl  sm:text-3xl md:text-[32px] font-bold text-(--titleColor)">
           Out Top Rated Doctors
           </h2>
 <p className="text-(--textColor)">Vetted experts dedicated to your clinical excellence.</p>
