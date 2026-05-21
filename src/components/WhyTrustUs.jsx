@@ -48,10 +48,11 @@ const WhyTrustUs = () => {
   return (
     <section className="py-20 bg-(--primary-container)">
       <div className="max-w-7xl mx-auto w-[90%]">
-        <div className="text-center">
+        <div className="text-center  space-y-5 px-6">
           <h2 className="text-2xl px-6 sm:text-3xl md:text-[32px] font-bold text-(--titleColor)">
            Why Patients Trust Us
           </h2>
+          <p className="text-(--textColor)">Building a legacy of care and clinical precision.</p>
         </div>
 
         {/* Responsive Grid */}
