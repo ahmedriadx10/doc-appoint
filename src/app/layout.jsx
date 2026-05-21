@@ -16,7 +16,7 @@ const interFont=Inter({
 
 export const metadata = {
   title: "DocAppoint",
-  description: "A doctor appointment booking application built with Next.js and Tailwind CSS.",
+  description: "DocAppoint helps patients quickly find doctors, compare availability, book appointments securely, manage profiles, and access trusted healthcare services online.",
 };
 
 export default function RootLayout({ children }) {

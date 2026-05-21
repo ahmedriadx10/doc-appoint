@@ -5,6 +5,25 @@ import { MdAttachMoney, MdLocationOn } from 'react-icons/md';
 import { specificDoctorAppointmentsGet } from '@/lib/data';
 import { BookingModal } from '@/components/ui/BookingModal';
 
+
+export async function generateMetadata({params}){
+
+
+  const {id}=await params
+  const doctorAppointmentsData = await specificDoctorAppointmentsGet(id);
+
+
+ return{
+  title: `${doctorAppointmentsData?.name || 'Doctor'} | DocAppoint`,
+  desription: doctorAppointmentsData?.description[0] || "View doctor details and book appointments."
+ }
+
+
+}
+
+
+
+
 const DoctorDetailsPage = async ({ params }) => {
   const { id } = await params;
 
