@@ -1,7 +1,8 @@
 "use client";
 
-import { authClient } from "@/lib/auth-client";
-import { Clock, Envelope } from "@gravity-ui/icons";
+
+import { convertTo24Hour, formatTime } from "@/works/shortwork";
+
 import {
   Button,
   DateField,
@@ -20,111 +21,80 @@ import { useState } from "react";
 import toast from "react-hot-toast";
 import { FaRegCalendarAlt } from "react-icons/fa";
 
-export function BookingModal({ doctorData }) {
-  const {
-    data: session,
-    isPending, //loading state
-    error, //error object
-    refetch, //refetch the session
-  } = authClient.useSession();
+export function BookingUpdateModal({ bookingData }) {
 
-  const {
-    _id,
-    name: doctorName,
-    specialty,
-    image,
-    experience,
-    availability,
-    description,
-    hospital,
-    location,
-    fee,
-    rating,
-    patients,
-    education,
-  } = doctorData;
 
-  const user = session?.user;
+    const {_id,userId,doctorId,doctorImage,doctorName,specialty,
+gender,
+patientName,fee,
+appointmentTime,
+appointmentDate,userEmail,
+reason
+}=bookingData
+console.log(bookingData)
+
+
   const router = useRouter();
 
 
-  const [formattedTime, setFormattedTime] = useState("");
 
-  const handleTimeChange = (e) => {
-    const timeValue = e.target.value;
-
-    if (timeValue) {
-      const [hourStr, minuteStr] = timeValue.split(":");
-      let hour = parseInt(hourStr, 10);
-      const minute = minuteStr;
-
-      const ampm = hour >= 12 ? "PM" : "AM";
-
-      hour = hour % 12;
-      hour = hour ? hour : 12;
-
-      const finalTimeStr = `${hour}:${minute} ${ampm}`;
-
-      setFormattedTime(finalTimeStr);
-    }
-  };
-
-  const handleSubmitBooking =async (e) => {
+  const handleUpdateBooking = async (e) => {
     e.preventDefault();
 
     const formData = new FormData(e.currentTarget);
     const exactFormData = Object.fromEntries(formData.entries());
 
 
-const bookingData={
 
-userId:user?.id,
-userEmail:user?.email,
-doctorId:_id,
-doctorImage:image,
-doctorName,
-fee,
-specialty,
+
+
+    const updateBookingData={
+
 patientName:exactFormData?.patientName.trim(),
 gender:exactFormData?.gender,
-phone:exactFormData?.phone,
 appointmentDate:new Date(exactFormData?.appointmentDate),
-appointmentTime:formattedTime,
-reason:exactFormData?.reason? exactFormData.reason:'Not mentioned'
-}
+appointmentTime:formatTime(exactFormData?.appointmentTime),
+reason:exactFormData?.reason?exactFormData.reason : 'Not mentioned'
+    }
+
+
+console.log(updateBookingData)
 
 
 
+const res=await fetch(`${process.env.NEXT_PUBLIC_API_URL}/bookings/${_id}`,{
 
+  method:'PATCH',
+  headers:{
 
-
-const res=await fetch(`${process.env.NEXT_PUBLIC_API_URL}/bookings`,{
-
-  method:'POST',
-headers:{
-  'content-type':'application/json'
-},
-body:JSON.stringify(bookingData)
+    'content-type':'application/json'
+  },
+  body:JSON.stringify(updateBookingData)
 })
 
 const result=await res.json()
 
+console.log('updated result',result)
 
-if(result?.insertedId){
+if(result?.modifiedCount>0){
 
-  toast.success('Appointment booked successfully!')
 
+  toast.success('Appointment updated successfully!')
+  router.refresh('/dashboard')
+return
 }
+else{
 
-
+  toast.error('Something went wrong try again')
+}
 
 
   };
 
   return (
     <Modal className="">
-      <Button className="max-w-max bg-(--primaryColor) hover:bg-blue-800 text-white font-semibold rounded-xl text-[15px] shadow-sm h-12">
-        <FaRegCalendarAlt className="w-4 h-4" /> Book Appointment
+      <Button className="w-full bg-(--primaryColor) hover:bg-blue-800 text-white font-semibold rounded-xl text-[15px] shadow-sm ">
+       Update
       </Button>
       <Modal.Backdrop>
         <Modal.Container placement="center">
@@ -135,14 +105,15 @@ if(result?.insertedId){
               <Surface className=" bg-white">
                 <form
                   className="flex flex-col gap-4"
-                  onSubmit={handleSubmitBooking}
+                 onSubmit={handleUpdateBooking}
                 >
                   <TextField
                     className="w-full"
                     name="email"
-                    defaultValue={user?.email}
+                    defaultValue={userEmail}
                     type="email"
                     variant="secondary"
+                    isReadOnly
                   >
                     <Label>Email</Label>
                     <Input
@@ -169,6 +140,7 @@ if(result?.insertedId){
                     name="patientName"
                     type="text"
                     variant="secondary"
+                    defaultValue={patientName}
                   >
                     <Label>Patient Name</Label>
                     <Input
@@ -176,25 +148,13 @@ if(result?.insertedId){
                       className="rounded-lg py-3 shadow-none bg-[#94A3B810]"
                     />
                   </TextField>
-                  <TextField
-                    className="w-full"
-                    name="phone"
-                    type="tel"
-                    inputMode="numeric"
-                    minLength={10}
-                    variant="secondary"
-                  >
-                    <Label>Phone</Label>
-                    <Input
-                      placeholder="01XXXXXXXXX"
-                      className="rounded-lg py-3 shadow-none bg-[#94A3B810]"
-                    />
-                  </TextField>
+  
 
                   <div className="flex flex-col gap-2 ">
                     <label className="text-sm font-medium">Select Date</label>
 
                     <input
+                    defaultValue={appointmentDate.split('T')[0]}
                       type="date"
                       name="appointmentDate"
                       className=" rounded-lg p-3 shadow-none bg-[#94A3B810] focus:outline-(--primaryColor)"
@@ -208,12 +168,17 @@ if(result?.insertedId){
                       <input
                         name="appointmentTime"
                         type="time"
-                        onChange={handleTimeChange}
+defaultValue={convertTo24Hour(appointmentTime)}
                         className="rounded-lg p-3 shadow-none bg-[#94A3B810] focus:outline-(--primaryColor)"
                       />
                     </div>
 
-                    <Select className="w-full" placeholder="Not Selected" name="gender">
+                    <Select
+                      className="w-full"
+                      placeholder="Not Selected"
+                      name="gender"
+                      defaultValue={gender || 'Male'}
+                    >
                       <Label>Gender</Label>
                       <Select.Trigger className="rounded-lg py-3 shadow-none bg-[#94A3B810] ">
                         <Select.Value />
@@ -240,6 +205,7 @@ if(result?.insertedId){
                     </label>
 
                     <input
+                    defaultValue={reason}
                       placeholder="Brief reason for visit"
                       name="reason"
                       type="text"

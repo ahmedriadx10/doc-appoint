@@ -1,6 +1,8 @@
 import { Button } from '@heroui/react';
 import Image from 'next/image';
 import { FaUser, FaVenusMars, FaMoneyBillWave, FaCalendarAlt, FaClock } from 'react-icons/fa';
+import {  BookingUpdateModal } from './BookingUpdateModal';
+import DeleteBooking from './DeleteBooking';
 
 
 
@@ -87,12 +89,8 @@ appointmentDate}=bookingData
    <hr className="border-slate-100 my-4" />
       {/* Action Buttons */}
       <div className="flex gap-4">
-        <Button className="w-full bg-(--primaryColor) hover:bg-blue-800 text-white font-semibold rounded-xl text-[15px] shadow-sm ">
-          Update
-        </Button>
-    <Button className="w-full bg-white  text-danger font-semibold rounded-xl text-[15px] border border-danger shadow-sm ">
-          Update
-        </Button>
+<BookingUpdateModal bookingData={bookingData}/>
+<DeleteBooking bookingData={bookingData}/>
       </div>
 
     </div>
