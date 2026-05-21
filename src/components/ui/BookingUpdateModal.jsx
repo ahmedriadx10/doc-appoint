@@ -163,7 +163,7 @@ else{
                     defaultValue={appointmentDate.split('T')[0]}
                       type="date"
                       name="appointmentDate"
-                      className=" rounded-lg p-3 shadow-none bg-[#94A3B810] focus:outline-(--primaryColor)"
+                      className=" rounded-lg p-3 shadow-none w-full bg-[#94A3B810] focus:outline-(--primaryColor)"
                     />
                   </div>
 
@@ -233,7 +233,7 @@ defaultValue={convertTo24Hour(appointmentTime)}
                         "bg-(--primaryColor) hover:bg-blue-800 text-white font-semibold rounded-xl text-[15px] shadow-sm h-10"
                       }
                     >
-                      Update
+                      Book Now
                     </Button>
                   </div>
                 </form>

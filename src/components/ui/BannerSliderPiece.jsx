@@ -5,7 +5,7 @@ const BannerSliderPiece = ({slide}) => {
 const {tooltip, heading, subHeading, description, btnOne, btnOneIcon, btnTwo, btnTwoIcon, image}=slide
 
   return (
-    <section className=" min-h-150 w-full  flex items-center justify-center px-6 py-5 md:px-16 overflow-hidden">
+    <section className=" min-h-150 w-full  flex items-center justify-center px-4 py-5 md:px-16 overflow-hidden">
       
    
 
