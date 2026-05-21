@@ -28,8 +28,6 @@ export function BookingModal({ doctorData, token }) {
     refetch, //refetch the session
   } = authClient.useSession();
 
-
-
   const {
     _id,
     name: doctorName,
@@ -76,14 +74,16 @@ export function BookingModal({ doctorData, token }) {
     const formData = new FormData(e.currentTarget);
     const exactFormData = Object.fromEntries(formData.entries());
 
-
-if(exactFormData?.appointmentDate==='' || exactFormData?.appointmentTime==='' || !formattedTime || !exactFormData?.patientName || !exactFormData?.phone){
-
-
-  toast.error("Please fill all the required fields");
-return;
-}
-
+    if (
+      exactFormData?.appointmentDate === "" ||
+      exactFormData?.appointmentTime === "" ||
+      !formattedTime ||
+      !exactFormData?.patientName ||
+      !exactFormData?.phone || exactFormData?.gender === ""
+    ) {
+      toast.error("Please fill all the required fields");
+      return;
+    }
 
     const bookingData = {
       userId: user?.id,
@@ -94,8 +94,10 @@ return;
       fee,
       specialty,
       patientName: exactFormData?.patientName.trim(),
-      gender: exactFormData?.gender || "Not mentioned",
-      phone: exactFormData?.phone ? exactFormData.phone.trim() : "Not mentioned",
+      gender: exactFormData?.gender || "Male",
+      phone: exactFormData?.phone
+        ? exactFormData.phone.trim()
+        : "Not mentioned",
       appointmentDate: new Date(exactFormData?.appointmentDate),
       appointmentTime: formattedTime,
       reason: exactFormData?.reason ? exactFormData.reason : "Not mentioned",
@@ -261,7 +263,7 @@ return;
                         "bg-(--primaryColor) hover:bg-blue-800 text-white font-semibold rounded-xl text-[15px] shadow-sm h-10"
                       }
                     >
-                  Book Now
+                      Book Now
                     </Button>
                   </div>
                 </form>
