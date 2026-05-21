@@ -76,6 +76,15 @@ export function BookingModal({ doctorData, token }) {
     const formData = new FormData(e.currentTarget);
     const exactFormData = Object.fromEntries(formData.entries());
 
+
+if(exactFormData?.appointmentDate==='' || exactFormData?.appointmentTime==='' || !formattedTime || !exactFormData?.patientName || !exactFormData?.phone){
+
+
+  toast.error("Please fill all the required fields");
+return;
+}
+
+
     const bookingData = {
       userId: user?.id,
       userEmail: user?.email,
@@ -85,8 +94,8 @@ export function BookingModal({ doctorData, token }) {
       fee,
       specialty,
       patientName: exactFormData?.patientName.trim(),
-      gender: exactFormData?.gender,
-      phone: exactFormData?.phone,
+      gender: exactFormData?.gender || "Not mentioned",
+      phone: exactFormData?.phone ? exactFormData.phone.trim() : "Not mentioned",
       appointmentDate: new Date(exactFormData?.appointmentDate),
       appointmentTime: formattedTime,
       reason: exactFormData?.reason ? exactFormData.reason : "Not mentioned",
