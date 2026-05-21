@@ -17,7 +17,7 @@ const MyProfile = ({ bookingsData }) => {
 
   const user = session?.user;
 
-  console.log(user?.image);
+
 
   return (
     <div className="mt-15 ">

@@ -32,7 +32,7 @@ appointmentTime,
 appointmentDate,userEmail,
 reason
 }=bookingData
-console.log(bookingData)
+
 
 
   const router = useRouter();
@@ -61,7 +61,7 @@ reason:exactFormData?.reason?exactFormData.reason : 'Not mentioned'
     }
 
 
-console.log(updateBookingData)
+
 
 
 
@@ -80,7 +80,7 @@ const res=await fetch(`${process.env.NEXT_PUBLIC_API_URL}/bookings/${_id}`,{
 
 const result=await res.json()
 
-console.log('updated result',result)
+
 
 if(result?.modifiedCount>0){
 

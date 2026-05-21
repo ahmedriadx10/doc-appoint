@@ -28,7 +28,7 @@ export function BookingModal({ doctorData, token }) {
     refetch, //refetch the session
   } = authClient.useSession();
 
-  console.log("accessing token from post modal", token);
+
 
   const {
     _id,

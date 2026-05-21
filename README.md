@@ -7,15 +7,15 @@ A modern healthcare appointment booking platform built with Next.js. Book appoin
 **DocAppoint** streamlines the process of finding, booking, and managing appointments with certified medical specialists. The platform offers a seamless experience for both patients and doctors, featuring instant booking, flexible scheduling, and a secure, user-friendly interface.
 
 
-![Project Banner](/src/assets/images/skillsphere-ui.png) 
+![Project Banner](/src/assets/doc-appoint-ui.png) 
 
 <br>
 <div align="center">
 
-[![Live Demo](https://img.shields.io/badge/Live_Demo-Visit-brightgreen)](https://skillsphere-edu.vercel.app)
-[![GitHub stars](https://img.shields.io/github/stars/ahmedriadx10/skillsphere)](https://github.com/ahmedriadx10/skillsphere)
+[![Live Demo](https://img.shields.io/badge/Live_Demo-Visit-brightgreen)](https://doc-appoint-delta.vercel.app/)
+[![GitHub stars](https://img.shields.io/github/stars/ahmedriadx10/doc-appoint)](https://github.com/ahmedriadx10/doc-appoint)
 
-
+</div>
 
 ## Features
 
@@ -55,6 +55,3 @@ A modern healthcare appointment booking platform built with Next.js. Book appoin
 - `src/components/` — UI components (forms, cards, modals, etc.)
 - `src/lib/` — Data fetching, authentication logic
 
-## License
-
-This project is for educational/demo purposes.

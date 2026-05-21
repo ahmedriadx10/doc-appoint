@@ -31,7 +31,7 @@ const RegisterForm = () => {
     const formData = new FormData(e.currentTarget);
     const exactFormData = Object.fromEntries(formData.entries());
 
-    console.log(exactFormData);
+
 
     const result = await authClient.signUp.email(
       { ...exactFormData },

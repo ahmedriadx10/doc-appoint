@@ -37,10 +37,10 @@ const DoctorDetailsPage = async ({ params }) => {
 const token=await auth.api.getToken({
   headers:await headers()
 })
-console.log(token?.token)
+
   const doctorAppointmentsData = await specificDoctorAppointmentsGet(id,token?.token);
 
-console.log(id)
+
 
 const {_id,name,specialty,image,experience,availability,description,hospital,location,fee,rating,patients,education,}=doctorAppointmentsData
 

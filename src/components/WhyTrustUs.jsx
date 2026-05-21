@@ -46,7 +46,7 @@ const WhyTrustUs = () => {
   ];
 
   return (
-    <section className="py-20 bg-(--primary-container)">
+    <section className="py-12 md:py-20 bg-(--primary-container)">
       <div className="max-w-7xl mx-auto w-[90%]">
         <div className="text-center  space-y-4 px-3">
           <h2 className="text-2xl px-6 sm:text-3xl md:text-[32px] font-bold text-(--titleColor)">
@@ -56,7 +56,7 @@ const WhyTrustUs = () => {
         </div>
 
         {/* Responsive Grid */}
-        <div className="my-15  grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6 lg:grid-rows-[270px_270px] xl:grid-rows-[220px_220px] ">
+        <div className="my-15 md:my-16.25  grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6 lg:grid-rows-[270px_270px] xl:grid-rows-[220px_220px] ">
           {/* Card 1: Verified Doctors - lg:8col, md:full, sm:full */}
           <div className="col-span-full md:col-span-full lg:col-span-8">
             <div

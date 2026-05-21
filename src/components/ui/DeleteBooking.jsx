@@ -33,7 +33,7 @@ const res =await fetch(`${process.env.NEXT_PUBLIC_API_URL}/bookings/${_id}`,{
 
 const result=await res.json()
 
-console.log(result)
+
 
 if(result?.deletedCount>0){
 

@@ -7,10 +7,10 @@ const TopRateDoctors = async() => {
  
  const topRatedDoctors=await topRatedDoctorsGet()
 
- console.log(topRatedDoctors)
+
  
   return (
-    <section className="max-w-7xl mx-auto w-[90%] py-20">
+    <section className="max-w-7xl mx-auto w-[90%] py-12 md:py-20">
 
 {/* top rated doctors section introduce */}
 
