@@ -83,6 +83,7 @@ doctorId:_id,
 doctorImage:image,
 doctorName,
 fee,
+specialty,
 patientName:exactFormData?.patientName.trim(),
 gender:exactFormData?.gender,
 phone:exactFormData?.phone,
@@ -91,8 +92,7 @@ appointmentTime:formattedTime,
 reason:exactFormData?.reason? exactFormData.reason:'Not mentioned'
 }
 
-console.log('This is exact form data',exactFormData)
-console.log('This is booking data',bookingData)
+
 
 
 

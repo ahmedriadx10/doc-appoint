@@ -10,7 +10,7 @@ const DoctorDetailsPage = async ({ params }) => {
 
   const doctorAppointmentsData = await specificDoctorAppointmentsGet(id);
 
-console.log(doctorAppointmentsData)
+
 
 const {_id,name,specialty,image,experience,availability,description,hospital,location,fee,rating,patients,education,}=doctorAppointmentsData
 

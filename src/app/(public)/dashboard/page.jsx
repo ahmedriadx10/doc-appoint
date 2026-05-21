@@ -1,13 +1,25 @@
-"use client";
 import DashBoardControl from "@/components/DashBoardControl";
+import { auth } from "@/lib/auth";
+import { bookingsDataGet } from "@/lib/data";
+import { headers } from "next/headers";
 
 
-const DashBoard = () => {
+
+
+const DashBoard =async () => {
  
+  const session=await auth.api.getSession({
+    headers:await headers()
+  })
+
+  console.log(session)
+
+  const bookingsData=await bookingsDataGet(session?.user?.id)
+
 
   return (
 <>
-<DashBoardControl/>
+<DashBoardControl bookingsData={bookingsData}/>
 
 </>
   );

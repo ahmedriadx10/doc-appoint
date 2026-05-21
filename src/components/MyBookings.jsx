@@ -1,8 +1,19 @@
+import BookingCard from "./ui/BookingCard";
 
-const MyBookings = () => {
+const MyBookings = ({bookingsData}) => {
+  console.log(bookingsData)
   return (
     <div className="min-h-[40vh]">
-      My Bookings
+
+
+{bookingsData?.length===0?<div>Empthy booking</div>:<div className="mt-15 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+  
+  {bookingsData?.map((booking)=><BookingCard bookingData={booking} key={booking?._id}></BookingCard>)}
+
+  </div>}
+<div></div>
+
+
     </div>
   );
 };

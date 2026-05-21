@@ -30,6 +30,20 @@ export const topRatedDoctorsGet=async ()=>{
 }
 
 
-// bookings post 
 
+//bookings data get 
+
+
+export const bookingsDataGet=async (userId)=>{
+
+
+  const res=await fetch(`${process.env.NEXT_PUBLIC_API_URL}/bookings/${userId}`)
+  const result=await res.json()
+
+  return result || []
+  
+
+  
+
+}
 

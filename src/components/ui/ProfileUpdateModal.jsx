@@ -16,7 +16,7 @@ export function ProfileUpdateModal({ user, setToogle }) {
     const formData = new FormData(e.currentTarget);
     const exactFormData = Object.fromEntries(formData.entries());
 
-    console.log(exactFormData);
+  
 
     const { data, error } = await authClient.updateUser({
       ...exactFormData,

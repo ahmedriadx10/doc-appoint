@@ -15,7 +15,7 @@ const Navbar =async () => {
 
 
 
-  console.log(session)
+
 
   return (
     <nav>

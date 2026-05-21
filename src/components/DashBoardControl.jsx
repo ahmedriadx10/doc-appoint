@@ -1,8 +1,11 @@
+'use client'
 import  { useState } from 'react';
 import MyBookings from './MyBookings';
 import MyProfile from './MyProfile';
 
-const DashBoardControl = () => {
+const DashBoardControl = ({bookingsData}) => {
+
+  console.log(bookingsData)
    const [toggle, setToggle] = useState("bookings");
   return (
     <section className="max-w-7xl py-20 mx-auto w-[90%]">
@@ -26,7 +29,7 @@ const DashBoardControl = () => {
         </div>
       </div>
 
-{toggle ==='bookings'?<MyBookings/>:null}
+{toggle ==='bookings'?<MyBookings bookingsData={bookingsData}/>:null}
 {toggle ==='profile'?<MyProfile setToggle={setToggle} />:null}
 
     </section>
