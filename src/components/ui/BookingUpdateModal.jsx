@@ -175,7 +175,7 @@ else{
                         name="appointmentTime"
                         type="time"
 defaultValue={convertTo24Hour(appointmentTime)}
-                        className="rounded-lg p-3 shadow-none bg-[#94A3B810] focus:outline-(--primaryColor)"
+                        className="rounded-lg p-3 shadow-none w-full bg-[#94A3B810] focus:outline-(--primaryColor)"
                       />
                     </div>
 
@@ -186,7 +186,7 @@ defaultValue={convertTo24Hour(appointmentTime)}
                       defaultValue={gender || 'Male'}
                     >
                       <Label>Gender</Label>
-                      <Select.Trigger className="rounded-lg py-3 shadow-none bg-[#94A3B810] ">
+                      <Select.Trigger className="rounded-lg py-3 w-full shadow-none bg-[#94A3B810] ">
                         <Select.Value />
                         <Select.Indicator />
                       </Select.Trigger>
