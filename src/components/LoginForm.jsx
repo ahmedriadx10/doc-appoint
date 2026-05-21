@@ -72,8 +72,8 @@ const handleSocialSignIn= async()=>{
       <FaBriefcaseMedical className="text-(--primaryColor) text-3xl" />
 </div>
 <div className="space-y-2 text-center">
-  <h2 className="text-3xl font-bold text-(--primaryColor)">Welcom Back</h2>
-<p className="text-(--textColor)">Sign in to manage your DocAppoint care
+  <h2 className="text-3xl font-bold text-(--primaryColor)">Log in</h2>
+<p className="text-(--textColor)">Log in to manage your DocAppoint care
 journey.</p>
 </div>
 </div>
