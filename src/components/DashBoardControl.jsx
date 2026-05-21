@@ -30,7 +30,7 @@ const DashBoardControl =({bookingsData}) => {
       </div>
 
 {toggle ==='bookings'?<MyBookings  bookingsData={bookingsData}/>:null}
-{toggle ==='profile'?<MyProfile setToggle={setToggle} />:null}
+{toggle ==='profile'?<MyProfile bookingsData={bookingsData} />:null}
 
     </section>
   );

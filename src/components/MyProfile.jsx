@@ -7,7 +7,7 @@ import { MdOutlineSecurity, MdOutlineSettings } from "react-icons/md";
 import { authClient } from '@/lib/auth-client';
 import { ProfileUpdateModal } from './ui/ProfileUpdateModal';
 
-const MyProfile = ({setToogle}) => {
+const MyProfile = ({bookingsData}) => {
     const { 
         data: session, 
         isPending, //loading state
@@ -67,7 +67,7 @@ const user=session?.user
           {/* স্ট্যাটস গ্রিড (Bookings & Punctuality) */}
           <div className="grid grid-cols-2 gap-4 px-6 mb-6">
             <div className="bg-indigo-50/60 rounded-xl p-4 text-center">
-              <div className="text-2xl font-bold text-indigo-900">12</div>
+              <div className="text-2xl font-bold text-indigo-900">{bookingsData?.length!==0?bookingsData?.length:0}</div>
               <div className="text-[10px] font-bold text-indigo-700 uppercase tracking-widest mt-1">
                 Bookings
               </div>
@@ -92,7 +92,7 @@ const user=session?.user
               Update Profile
             </Button> */}
 
-            <ProfileUpdateModal user={user} setToogle={setToogle}/>
+            <ProfileUpdateModal user={user}/>
 
             {/* অ্যাকাউন্ট সেটিংস বাটন
             <Button

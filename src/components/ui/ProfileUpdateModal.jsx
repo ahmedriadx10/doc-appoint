@@ -7,7 +7,7 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
 
-export function ProfileUpdateModal({ user, setToogle }) {
+export function ProfileUpdateModal({ user}) {
   const router = useRouter();
 
   const handleUpdateProfile = async (e) => {
