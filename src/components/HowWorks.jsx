@@ -31,7 +31,7 @@ const HowWorks = () => {
   return (
     <section className="bg-[#f8faff] py-20  ">
       <div className="max-w-6xl mx-auto text-center">
-       <div className="text-center space-y-3 px-3">
+       <div className="text-center space-y-4 px-3">
           <h2 className="text-2xl  sm:text-3xl md:text-[32px] font-bold text-(--titleColor) ">
           3 Simple Steps to Meet Your Doctor
           </h2>
