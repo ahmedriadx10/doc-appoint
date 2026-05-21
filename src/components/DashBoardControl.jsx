@@ -8,7 +8,7 @@ const DashBoardControl = ({bookingsData}) => {
   console.log(bookingsData)
    const [toggle, setToggle] = useState("bookings");
   return (
-    <section className="max-w-7xl py-20 mx-auto w-[90%]">
+    <section className="max-w-7xl py-10 mx-auto w-[90%]">
       <div>
         <div className="max-w-max bg-gray-200  p-1 rounded-full mx-auto">
           <div className="flex items-center gap-2.5 rounded-full bg-transparent p-0.5">
