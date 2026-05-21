@@ -27,6 +27,7 @@ appointmentDate}=bookingData
             fill
             className="object-cover"
             sizes="64px"
+            priority
           />
         </div>
         <div>

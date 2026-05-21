@@ -34,7 +34,7 @@ const Navbar =async () => {
  
  {session?.user?<div className="flex gap-2.5 items-center">
     <Avatar className="outline-2 outline-(--outline)" size="lg">
-        <Avatar.Image  alt={session?.user?.name} className="" src={session?.user?.image} referrerPolicy="no-referrer"/>
+        <Avatar.Image  alt={session?.user?.name} className="" src={session?.user?.image || 'https://cdn-icons-png.flaticon.com/512/8188/8188349.png'} referrerPolicy="no-referrer"/>
         <Avatar.Fallback>{session?.user?.name.slice(0,2).toUpperCase()}</Avatar.Fallback>
       </Avatar>
   
