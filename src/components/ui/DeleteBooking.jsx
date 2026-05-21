@@ -4,6 +4,8 @@ import {AlertDialog, Button} from "@heroui/react";
 import { useRouter } from "next/navigation";
 import { FaTrash } from "react-icons/fa";
 import { toast } from 'react-hot-toast';
+import { authClient } from "@/lib/auth-client";
+
 
 export default function DeleteBooking({bookingData}) {
 const router=useRouter()
@@ -19,10 +21,14 @@ appointmentDate}=bookingData
 
 const hadleDeleteBooking=async()=>{
 
-  console.log(_id)
+ const jwtToken=await authClient.token()
+
 
 const res =await fetch(`${process.env.NEXT_PUBLIC_API_URL}/bookings/${_id}`,{
-  method:'DELETE'
+  method:'DELETE',
+        headers: {
+        ...(jwtToken?.data?.token && { Authorization: `Bearer ${jwtToken?.data?.token}` }),
+      },
 })
 
 const result=await res.json()

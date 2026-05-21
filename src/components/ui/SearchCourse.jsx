@@ -8,12 +8,12 @@ import { FaSearch } from "react-icons/fa";
 const SearchCourse = () => {
 const [searchInp,setSearchInp]=useState('') 
  const path=usePathname()
- console.log(path)
+
  const searchParams=useSearchParams()
- console.log(searchParams)
+
  const router=useRouter()
 
- console.log(searchInp)
+
 const handleSearch=()=>{
 
 const instanceParams=new URLSearchParams(searchParams)

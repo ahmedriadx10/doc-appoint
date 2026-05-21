@@ -6,6 +6,7 @@ export const metadata = {
 
 import DashBoardControl from "@/components/DashBoardControl";
 import { auth } from "@/lib/auth";
+
 import { bookingsDataGet } from "@/lib/data";
 import { headers } from "next/headers";
 
@@ -14,13 +15,17 @@ const DashBoard = async () => {
     headers: await headers(),
   });
 
-  console.log(session);
+const jwtToken=await auth.api.getToken({
+  headers:await headers()
+})
 
-  const bookingsData = await bookingsDataGet(session?.user?.id);
+
+
+  const bookingsData = await bookingsDataGet(session?.user?.id,jwtToken?.token);
 
   return (
     <>
-      <DashBoardControl bookingsData={bookingsData} />
+      <DashBoardControl bookingsData={bookingsData}  />
     </>
   );
 };

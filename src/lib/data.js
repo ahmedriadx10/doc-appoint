@@ -1,58 +1,56 @@
-export const allAppointmentsGet=async (search)=>{
+export const allAppointmentsGet = async (search) => {
+  if (!search) {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/appointments`);
 
+    const data = await res.json();
 
-  if(!search){
-  const res=await fetch(`${process.env.NEXT_PUBLIC_API_URL}/appointments`)
-
-const data=await res.json()
-
-return data
-
+    return data;
   }
 
-  const res=await fetch(`${process.env.NEXT_PUBLIC_API_URL}/appointments?search=${search}`)
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/appointments?search=${search}`,
+  );
 
-const data=await res.json()
+  const data = await res.json();
 
-return data
+  return data;
+};
 
-}
+export const specificDoctorAppointmentsGet = async (doctorId, token) => {
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/appointments/${doctorId}`,
+    {
+      headers: {
+        ...(token && { Authorization: `Bearer ${token}` }),
+      },
+    },
+  );
+  const data = await res.json();
 
-export const specificDoctorAppointmentsGet=async (doctorId)=>{
+  return data;
+};
 
-const res=await fetch(`${process.env.NEXT_PUBLIC_API_URL}/appointments/${doctorId}`)
-const data=await res.json()
+export const topRatedDoctorsGet = async () => {
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/top-rated-doctors`,
+  );
 
-return data
-}
+  return res.json();
+};
 
+//bookings data get
 
+export const bookingsDataGet = async (userId,token) => {
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/bookings/${userId}`,{
 
-export const topRatedDoctorsGet=async ()=>{
+            headers: {
+        ...(token && { Authorization: `Bearer ${token}` }),
+      },
 
-  const res=await fetch(`${process.env.NEXT_PUBLIC_API_URL}/top-rated-doctors`)
+    }
+  );
+  const result = await res.json();
 
-
-
-  return res.json()
-
-}
-
-
-
-//bookings data get 
-
-
-export const bookingsDataGet=async (userId)=>{
-
-
-  const res=await fetch(`${process.env.NEXT_PUBLIC_API_URL}/bookings/${userId}`)
-  const result=await res.json()
-
-  return result || []
-  
-
-  
-
-}
-
+  return result || [];
+};

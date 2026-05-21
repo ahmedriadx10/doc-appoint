@@ -1,6 +1,7 @@
 "use client";
 
 
+import { authClient } from "@/lib/auth-client";
 import { convertTo24Hour, formatTime } from "@/works/shortwork";
 
 import {
@@ -21,7 +22,7 @@ import { useState } from "react";
 import toast from "react-hot-toast";
 import { FaRegCalendarAlt } from "react-icons/fa";
 
-export function BookingUpdateModal({ bookingData }) {
+export  function BookingUpdateModal({ bookingData }) {
 
 
     const {_id,userId,doctorId,doctorImage,doctorName,specialty,
@@ -41,10 +42,12 @@ console.log(bookingData)
   const handleUpdateBooking = async (e) => {
     e.preventDefault();
 
+
+
     const formData = new FormData(e.currentTarget);
     const exactFormData = Object.fromEntries(formData.entries());
 
-
+const jwtToken=await authClient.token()
 
 
 
@@ -67,7 +70,10 @@ const res=await fetch(`${process.env.NEXT_PUBLIC_API_URL}/bookings/${_id}`,{
   method:'PATCH',
   headers:{
 
-    'content-type':'application/json'
+    'content-type':'application/json',
+      
+        ...(jwtToken?.data?.token && { Authorization: `Bearer ${jwtToken?.data?.token}` }),
+   
   },
   body:JSON.stringify(updateBookingData)
 })

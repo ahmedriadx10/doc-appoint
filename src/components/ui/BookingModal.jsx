@@ -1,7 +1,7 @@
 "use client";
 
 import { authClient } from "@/lib/auth-client";
-import { Clock, Envelope } from "@gravity-ui/icons";
+
 import {
   Button,
   DateField,
@@ -20,13 +20,15 @@ import { useState } from "react";
 import toast from "react-hot-toast";
 import { FaRegCalendarAlt } from "react-icons/fa";
 
-export function BookingModal({ doctorData }) {
+export function BookingModal({ doctorData, token }) {
   const {
     data: session,
     isPending, //loading state
     error, //error object
     refetch, //refetch the session
   } = authClient.useSession();
+
+  console.log("accessing token from post modal", token);
 
   const {
     _id,
@@ -46,7 +48,6 @@ export function BookingModal({ doctorData }) {
 
   const user = session?.user;
   const router = useRouter();
-
 
   const [formattedTime, setFormattedTime] = useState("");
 
@@ -69,56 +70,42 @@ export function BookingModal({ doctorData }) {
     }
   };
 
-  const handleSubmitBooking =async (e) => {
+  const handleSubmitBooking = async (e) => {
     e.preventDefault();
 
     const formData = new FormData(e.currentTarget);
     const exactFormData = Object.fromEntries(formData.entries());
 
+    const bookingData = {
+      userId: user?.id,
+      userEmail: user?.email,
+      doctorId: _id,
+      doctorImage: image,
+      doctorName,
+      fee,
+      specialty,
+      patientName: exactFormData?.patientName.trim(),
+      gender: exactFormData?.gender,
+      phone: exactFormData?.phone,
+      appointmentDate: new Date(exactFormData?.appointmentDate),
+      appointmentTime: formattedTime,
+      reason: exactFormData?.reason ? exactFormData.reason : "Not mentioned",
+    };
 
-const bookingData={
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/bookings`, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+        ...(token && { Authorization: `Bearer ${token}` }),
+      },
+      body: JSON.stringify(bookingData),
+    });
 
-userId:user?.id,
-userEmail:user?.email,
-doctorId:_id,
-doctorImage:image,
-doctorName,
-fee,
-specialty,
-patientName:exactFormData?.patientName.trim(),
-gender:exactFormData?.gender,
-phone:exactFormData?.phone,
-appointmentDate:new Date(exactFormData?.appointmentDate),
-appointmentTime:formattedTime,
-reason:exactFormData?.reason? exactFormData.reason:'Not mentioned'
-}
+    const result = await res.json();
 
-
-
-
-
-
-const res=await fetch(`${process.env.NEXT_PUBLIC_API_URL}/bookings`,{
-
-  method:'POST',
-headers:{
-  'content-type':'application/json'
-},
-body:JSON.stringify(bookingData)
-})
-
-const result=await res.json()
-
-
-if(result?.insertedId){
-
-  toast.success('Appointment booked successfully!')
-
-}
-
-
-
-
+    if (result?.insertedId) {
+      toast.success("Appointment booked successfully!");
+    }
   };
 
   return (
@@ -213,7 +200,11 @@ if(result?.insertedId){
                       />
                     </div>
 
-                    <Select className="w-full" placeholder="Not Selected" name="gender">
+                    <Select
+                      className="w-full"
+                      placeholder="Not Selected"
+                      name="gender"
+                    >
                       <Label>Gender</Label>
                       <Select.Trigger className="rounded-lg py-3 shadow-none bg-[#94A3B810] ">
                         <Select.Value />

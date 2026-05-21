@@ -3,9 +3,9 @@ import  { useState } from 'react';
 import MyBookings from './MyBookings';
 import MyProfile from './MyProfile';
 
-const DashBoardControl = ({bookingsData}) => {
+const DashBoardControl =({bookingsData}) => {
 
-  console.log(bookingsData)
+
    const [toggle, setToggle] = useState("bookings");
   return (
     <section className="max-w-7xl py-10 mx-auto w-[90%]">
@@ -29,7 +29,7 @@ const DashBoardControl = ({bookingsData}) => {
         </div>
       </div>
 
-{toggle ==='bookings'?<MyBookings bookingsData={bookingsData}/>:null}
+{toggle ==='bookings'?<MyBookings  bookingsData={bookingsData}/>:null}
 {toggle ==='profile'?<MyProfile setToggle={setToggle} />:null}
 
     </section>

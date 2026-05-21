@@ -1,4 +1,4 @@
-import { Button } from '@heroui/react';
+
 import Image from 'next/image';
 import { FaUser, FaVenusMars, FaMoneyBillWave, FaCalendarAlt, FaClock } from 'react-icons/fa';
 import {  BookingUpdateModal } from './BookingUpdateModal';
@@ -6,7 +6,13 @@ import DeleteBooking from './DeleteBooking';
 
 
 
-const BookingCard = ({bookingData}) => {
+
+
+
+const BookingCard =({bookingData}) => {
+
+
+
 
   const {_id,userId,doctorId,doctorImage,doctorName,specialty,
 gender,

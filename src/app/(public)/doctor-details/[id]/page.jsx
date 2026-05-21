@@ -4,13 +4,20 @@ import { FaRegCalendarAlt, FaStar, FaBriefcase, FaBuilding, FaSun, FaMoon } from
 import { MdAttachMoney, MdLocationOn } from 'react-icons/md';
 import { specificDoctorAppointmentsGet } from '@/lib/data';
 import { BookingModal } from '@/components/ui/BookingModal';
+import { auth } from '@/lib/auth';
+import { headers } from 'next/headers';
+
 
 
 export async function generateMetadata({params}){
 
 
   const {id}=await params
-  const doctorAppointmentsData = await specificDoctorAppointmentsGet(id);
+const token=await auth.api.getToken({
+  headers:await headers()
+})
+
+  const doctorAppointmentsData = await specificDoctorAppointmentsGet(id,token?.token);
 
 
  return{
@@ -27,9 +34,13 @@ export async function generateMetadata({params}){
 const DoctorDetailsPage = async ({ params }) => {
   const { id } = await params;
 
-  const doctorAppointmentsData = await specificDoctorAppointmentsGet(id);
+const token=await auth.api.getToken({
+  headers:await headers()
+})
+console.log(token?.token)
+  const doctorAppointmentsData = await specificDoctorAppointmentsGet(id,token?.token);
 
-
+console.log(id)
 
 const {_id,name,specialty,image,experience,availability,description,hospital,location,fee,rating,patients,education,}=doctorAppointmentsData
 
@@ -67,7 +78,7 @@ const {_id,name,specialty,image,experience,availability,description,hospital,loc
             
     
             
-        <BookingModal doctorData={doctorAppointmentsData}/>
+        <BookingModal doctorData={doctorAppointmentsData} token={token?.token}/>
           </div>
         </div>
 
@@ -146,7 +157,7 @@ const {_id,name,specialty,image,experience,availability,description,hospital,loc
             
             <div className="space-y-4">
               {/* Morning Shift */}
-              {availability[0] && (
+              {availability?.[0] && (
                 <div className="flex items-center justify-between p-4 rounded-xl bg-slate-50 border border-slate-100">
                   <div className="flex items-center gap-3">
                     <div className="w-8 h-8 rounded-lg bg-amber-50 text-amber-500 flex items-center justify-center">
@@ -161,7 +172,7 @@ const {_id,name,specialty,image,experience,availability,description,hospital,loc
               )}
 
               {/* Evening Shift */}
-              {availability[1] && (
+              {availability?.[1] && (
                 <div className="flex items-center justify-between p-4 rounded-xl bg-slate-50 border border-slate-100">
                   <div className="flex items-center gap-3">
                     <div className="w-8 h-8 rounded-lg bg-indigo-50 text-indigo-500 flex items-center justify-center">

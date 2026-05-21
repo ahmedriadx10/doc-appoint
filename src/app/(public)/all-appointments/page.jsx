@@ -5,6 +5,7 @@ export const metadata = {
 };
 
 import AppointmentDoctorCard from "@/components/ui/AppointmentDoctorCard";
+import EmpthySearch from "@/components/ui/EmptySearch";
 import SearchCourse from "@/components/ui/SearchCourse";
 import { allAppointmentsGet } from "@/lib/data";
 
@@ -50,7 +51,7 @@ const appointmentSearch=await searchParams
         {/* all appointmens card */}
 
         <div className="  grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-[360px_360px_360px] justify-center gap-8">
-          {appointmentsData?.map((doctor) => (
+          {appointmentsData.length===0?<EmpthySearch searchTerm={appointmentSearch?.search}/>:appointmentsData?.map((doctor) => (
             <AppointmentDoctorCard key={doctor?._id} doctor={doctor} />
           ))}
         </div>
