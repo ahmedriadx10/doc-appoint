@@ -156,7 +156,7 @@ else{
                   </TextField>
   
 
-                  <div className="flex flex-col gap-2 ">
+                  <div className="flex flex-col gap-2  ">
                     <label className="text-sm font-medium">Select Date</label>
 
                     <input
@@ -233,7 +233,7 @@ defaultValue={convertTo24Hour(appointmentTime)}
                         "bg-(--primaryColor) hover:bg-blue-800 text-white font-semibold rounded-xl text-[15px] shadow-sm h-10"
                       }
                     >
-                      Book Now
+                     Update
                     </Button>
                   </div>
                 </form>

@@ -178,7 +178,7 @@ export function BookingModal({ doctorData, token }) {
                     />
                   </TextField>
 
-                  <div className="flex flex-col gap-2 ">
+                  <div className="flex flex-col gap-2 w-full">
                     <label className="text-sm font-medium">Select Date</label>
 
                     <input
@@ -188,7 +188,7 @@ export function BookingModal({ doctorData, token }) {
                     />
                   </div>
 
-                  <div className="flex gap-5 flex-col sm:flex-row justify-between items-center">
+                  <div className="flex gap-5 flex-col w-full sm:flex-row justify-between items-center">
                     <div className="flex flex-col gap-2 w-full">
                       <label className="text-sm font-medium">Time</label>
 
@@ -206,7 +206,7 @@ export function BookingModal({ doctorData, token }) {
                       name="gender"
                     >
                       <Label>Gender</Label>
-                      <Select.Trigger className="rounded-lg py-3 shadow-none bg-[#94A3B810] ">
+                      <Select.Trigger className="rounded-lg py-3 w-full shadow-none bg-[#94A3B810] ">
                         <Select.Value />
                         <Select.Indicator />
                       </Select.Trigger>
@@ -252,7 +252,7 @@ export function BookingModal({ doctorData, token }) {
                         "bg-(--primaryColor) hover:bg-blue-800 text-white font-semibold rounded-xl text-[15px] shadow-sm h-10"
                       }
                     >
-                      Update
+                  Book Now
                     </Button>
                   </div>
                 </form>
