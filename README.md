@@ -1,4 +1,4 @@
-# DocAppoint
+# 🩺 DocAppoint 
 
 A modern healthcare appointment booking platform built with Next.js. Book appointments with top doctors, explore trusted healthcare professionals, and manage your health journey with ease.
 
@@ -24,14 +24,13 @@ A modern healthcare appointment booking platform built with Next.js. Book appoin
 - **Flexible Scheduling:** Choose your preferred date and time slot.
 - **User Dashboard:** Manage your bookings and update your profile.
 - **Authentication:** Secure login and registration (email/password & Google).
-- **24/7 Support:** Dedicated support for all users.
 - **Responsive UI:** Mobile-friendly and modern design.
 
 ## Tech Stack
 
 - **Frontend:** Next.js, React, Tailwind CSS, HeroUI, Swiper, React Icons
-- **Backend:** Node.js,express.js, MongoDB, Better Auth (authentication)
-- **Other:** React Hot Toast, ESLint
+- **Backend:** Node.js, express.js, MongoDB, Better Auth (authentication) , JWT
+- **Other:** React Hot Toast, react-loader-spinner, ESLint
 
 ## Getting Started
 

@@ -103,12 +103,14 @@ const BookingCard = ({ bookingData }) => {
           </p>
         </div>
       </div>
-      <hr className="border-slate-100 my-4" />
+<div>
+        <hr className="border-slate-100 mt-6" />
       {/* Action Buttons */}
       <div className="flex gap-4">
         <BookingUpdateModal bookingData={bookingData} />
         <DeleteBooking bookingData={bookingData} />
       </div>
+</div>
     </div>
   );
 };
