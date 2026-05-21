@@ -23,7 +23,7 @@ export function ProfileUpdateModal({ user, setToogle }) {
     });
 
     if (data) {
-      toast.success("Profile update successfull");
+      toast.success("Profile updated successfully!");
       router.refresh("/dashboard");
 
       return;

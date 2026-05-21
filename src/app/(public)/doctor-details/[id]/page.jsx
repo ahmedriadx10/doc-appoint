@@ -3,6 +3,7 @@ import Image from 'next/image'; // Next.js Image Component ইমপোর্ট
 import { FaRegCalendarAlt, FaStar, FaBriefcase, FaBuilding, FaSun, FaMoon } from 'react-icons/fa';
 import { MdAttachMoney, MdLocationOn } from 'react-icons/md';
 import { specificDoctorAppointmentsGet } from '@/lib/data';
+import { BookingModal } from '@/components/ui/BookingModal';
 
 const DoctorDetailsPage = async ({ params }) => {
   const { id } = await params;
@@ -47,10 +48,7 @@ const {_id,name,specialty,image,experience,availability,description,hospital,loc
             
     
             
-            <button className="inline-flex items-center gap-2 bg-[#0252A3] hover:bg-[#014182] text-white font-semibold px-6 py-3 rounded-xl transition shadow-md shadow-blue-100">
-              <FaRegCalendarAlt className="w-4 h-4" />
-              Book Appointment
-            </button>
+        <BookingModal doctorData={doctorAppointmentsData}/>
           </div>
         </div>
 

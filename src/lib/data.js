@@ -28,3 +28,8 @@ export const topRatedDoctorsGet=async ()=>{
   return res.json()
 
 }
+
+
+// bookings post 
+
+
