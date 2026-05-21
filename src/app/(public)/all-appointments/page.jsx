@@ -5,12 +5,18 @@ export const metadata = {
 };
 
 import AppointmentDoctorCard from "@/components/ui/AppointmentDoctorCard";
+import SearchCourse from "@/components/ui/SearchCourse";
 import { allAppointmentsGet } from "@/lib/data";
 
-const AllAppointMentsPage = async () => {
-  const appointmentsData = await allAppointmentsGet();
+const AllAppointMentsPage = async ({searchParams}) => {
 
-  console.log(appointmentsData);
+const appointmentSearch=await searchParams
+
+
+
+  const appointmentsData = await allAppointmentsGet(appointmentSearch?.search);
+
+
 
   return (
     <section className="py-20 max-w-7xl mx-auto w-[90%]">
@@ -26,7 +32,14 @@ const AllAppointMentsPage = async () => {
             Manage your health journey with ease. Book and review your
             appointments with the world's leading healthcare professionals.
           </p>
+<div>
+
+  <SearchCourse/>
+</div>
+
         </div>
+
+
 
         {/* search layout will be added here */}
       </div>

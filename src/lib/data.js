@@ -1,7 +1,16 @@
-export const allAppointmentsGet=async ()=>{
+export const allAppointmentsGet=async (search)=>{
 
 
+  if(!search){
   const res=await fetch(`${process.env.NEXT_PUBLIC_API_URL}/appointments`)
+
+const data=await res.json()
+
+return data
+
+  }
+
+  const res=await fetch(`${process.env.NEXT_PUBLIC_API_URL}/appointments?search=${search}`)
 
 const data=await res.json()
 
