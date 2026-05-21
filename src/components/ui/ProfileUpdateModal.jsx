@@ -51,11 +51,11 @@ export function ProfileUpdateModal({ user}) {
                     src={
                       user?.image ||
                       "https://cdn-icons-png.flaticon.com/512/8188/8188349.png"
-                    } // পরবর্তীতে তোমার ডাইনামিক ইমেজ ইউআরএল বসাবে
+                    } 
                     alt={user?.name || "User"}
                     fill
                     priority
-                    sizes="(max-width: 768px) 128px, 128px"
+                    sizes="(max-width: 768px) 500px, 500px"
                     className="object-cover"
                   />
                 </div>

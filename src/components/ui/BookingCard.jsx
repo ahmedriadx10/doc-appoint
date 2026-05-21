@@ -1,50 +1,56 @@
+import Image from "next/image";
+import {
+  FaUser,
+  FaVenusMars,
+  FaMoneyBillWave,
+  FaCalendarAlt,
+  FaClock,
+} from "react-icons/fa";
+import { BookingUpdateModal } from "./BookingUpdateModal";
+import DeleteBooking from "./DeleteBooking";
 
-import Image from 'next/image';
-import { FaUser, FaVenusMars, FaMoneyBillWave, FaCalendarAlt, FaClock } from 'react-icons/fa';
-import {  BookingUpdateModal } from './BookingUpdateModal';
-import DeleteBooking from './DeleteBooking';
-
-
-
-
-
-
-const BookingCard =({bookingData}) => {
-
-
-
-
-  const {_id,userId,doctorId,doctorImage,doctorName,specialty,
-gender,
-patientName,fee,
-appointmentTime,
-appointmentDate}=bookingData
-
+const BookingCard = ({ bookingData }) => {
+  const {
+    _id,
+    userId,
+    doctorId,
+    doctorImage,
+    doctorName,
+    specialty,
+    gender,
+    patientName,
+    fee,
+    appointmentTime,
+    appointmentDate,
+  } = bookingData;
 
   return (
     <div className=" bg-white h-full flex flex-col gap-5 justify-between border border-slate-100 rounded-3xl shadow-sm p-6 md:p-7 font-sans">
-      
       {/* Doctor Info Section */}
-     <div>
-       <div className="flex items-center gap-4 ">
-        <div className="relative w-16 h-16 rounded-full overflow-hidden border-2 border-blue-500">
-          <Image
-          src={doctorImage}
-            alt={doctorName}
-            fill
-            className="object-cover"
-            sizes="64px"
-            priority
-          />
+      <div>
+        <div className="flex items-center gap-4 ">
+          <div className="relative w-16 h-16 rounded-full overflow-hidden border-2 border-blue-500">
+            <Image
+              src={doctorImage}
+              alt={doctorName}
+              fill
+              className="object-cover"
+              sizes="64px"
+              priority
+            />
+          </div>
+          <div>
+            <h3 className="text-xl font-bold text-(--titleColor) tracking-tight">
+              {doctorName}
+            </h3>
+            <p className="text-xs font-bold text-(--primaryColor) uppercase tracking-wider mt-0.5">
+              {specialty}
+            </p>
+          </div>
         </div>
-        <div>
-          <h3 className="text-xl font-bold text-(--titleColor) tracking-tight">{doctorName}</h3>
-          <p className="text-xs font-bold text-(--primaryColor) uppercase tracking-wider mt-0.5">{specialty}</p>
-        </div>
-      </div>
 
-      <hr className="border-slate-100 my-4" />
-     </div>
+        <hr className="border-slate-100 mt-6" />
+      </div>
 
       {/* Patient Name Section */}
       <div className="">
@@ -57,7 +63,6 @@ appointmentDate}=bookingData
 
       {/* Grid Info Section (Gender, Fee, Date, Time) */}
       <div className="grid grid-cols-2 gap-y-5 gap-x-4">
-        
         {/* Gender */}
         <div>
           <div className="flex items-center gap-2 text-xs font-semibold text-slate-400 uppercase tracking-wider mb-1">
@@ -82,7 +87,9 @@ appointmentDate}=bookingData
             <FaCalendarAlt className="text-sm" />
             <span>Date</span>
           </div>
-          <p className="text-base font-bold text-(--titleColor)">{new Date(appointmentDate).toDateString()}</p>
+          <p className="text-base font-bold text-(--titleColor)">
+            {new Date(appointmentDate).toDateString()}
+          </p>
         </div>
 
         {/* Time */}
@@ -91,17 +98,17 @@ appointmentDate}=bookingData
             <FaClock className="text-sm" />
             <span>Time</span>
           </div>
-          <p className="text-base font-bold text-(--titleColor)">{appointmentTime}</p>
+          <p className="text-base font-bold text-(--titleColor)">
+            {appointmentTime}
+          </p>
         </div>
-
       </div>
-   <hr className="border-slate-100 my-4" />
+      <hr className="border-slate-100 my-4" />
       {/* Action Buttons */}
       <div className="flex gap-4">
-<BookingUpdateModal bookingData={bookingData}/>
-<DeleteBooking bookingData={bookingData}/>
+        <BookingUpdateModal bookingData={bookingData} />
+        <DeleteBooking bookingData={bookingData} />
       </div>
-
     </div>
   );
 };

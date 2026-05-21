@@ -36,7 +36,7 @@ const MyProfile = ({ bookingsData }) => {
                 alt={user?.name || "User"}
                 fill
                 priority
-                sizes="(max-width: 768px) 128px, 128px"
+                sizes="(max-width: 768px) 500px, 500px"
                 className="object-cover"
               />
             </div>
