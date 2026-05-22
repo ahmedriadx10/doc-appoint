@@ -104,7 +104,7 @@ const BookingCard = ({ bookingData }) => {
         </div>
       </div>
 <div>
-        <hr className="border-slate-100 mt-6" />
+        <hr className="border-slate-100 mb-6" />
       {/* Action Buttons */}
       <div className="flex gap-4">
         <BookingUpdateModal bookingData={bookingData} />

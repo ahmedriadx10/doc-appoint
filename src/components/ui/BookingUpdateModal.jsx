@@ -51,9 +51,12 @@ const jwtToken=await authClient.token()
 
 
 
+
+
+
     const updateBookingData={
 
-patientName:exactFormData?.patientName.trim(),
+patientName:exactFormData?.patientName.trim() || patientName,
 gender:exactFormData?.gender,
 appointmentDate:new Date(exactFormData?.appointmentDate),
 appointmentTime:formatTime(exactFormData?.appointmentTime),

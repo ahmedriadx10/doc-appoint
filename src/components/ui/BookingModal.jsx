@@ -263,7 +263,7 @@ export function BookingModal({ doctorData, token }) {
                         "bg-(--primaryColor) hover:bg-blue-800 text-white font-semibold rounded-xl text-[15px] shadow-sm h-10"
                       }
                     >
-                      Book Now
+                     Submit
                     </Button>
                   </div>
                 </form>
